@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <button>colorchange</button>
+    
+</body>
+</html>
+<script>
+    let btnelement=document.querySelector("button")
+    btnelement.addEventListener("click",()=>{
+        let redcode=Math.floor(Math.random()*255);
+        let grrencode=Math.floor(Math.random()*255);
+        let bluecode=Math.floor(Math.random()*255);
+        btnelement.parentElement.style.background=`rgb(${redcode},${grrencode},${bluecode})`
+
+    })
+</script>

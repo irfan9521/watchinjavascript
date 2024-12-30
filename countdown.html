@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let mycountdown=()=>{
+      let currentdate=new Date();   
+    //   console.log(currentdate)
+      let currentsecond=currentdate.getTime();
+    //   console.log(currentsecond)
+    let countdowndate=new Date("wed Dec 18 2024 23:59:59");
+    // console.log(countdowndate)
+    let countdownsecond=countdowndate.getTime();
+    let differentsecond=countdownsecond-currentsecond;
+    // console.log(differentsecond)
+    let finaldayssecond=Math.floor(differentsecond/1000);
+    // console.log(finaldayssecond)
+    // console.log(countdownsecond)
+    let onemint=60;
+    // console.log(onemint)
+    let onehour=onemint*60;
+    // console.log(onehour)
+    let onedaysecond=onehour*24;
+    // console.log(onedaysecond)
+    let finaldays=Math.floor(finaldayssecond/onedaysecond);
+    // console.log(finaldays)
+    let remindersecondaftersecond=finaldayssecond %onedaysecond;
+    // console.log(remindersecondaftersecond)
+    let  finalhour=Math.floor(remindersecondaftersecond/onehour)
+    // console.log(finalhour)
+    let remendersecondafterhour=remindersecondaftersecond%onehour
+    // console.log(remendersecondafterhour)
+    let finalmin=Math.floor(remendersecondafterhour/onemint)
+    // console.log(finalmin)
+    let finalsecond=remendersecondafterhour%onemint;
+    // console.log(finalsecond)
+    console.log(finaldays,finalhour,finalmin,finalsecond)
+    }
+    setInterval(()=>{
+        mycountdown()
+    },1000)
+    mycountdown()
+</script>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: sans-serif;
+            .main{
+                width: 500px;
+                
+                
+                margin: auto;
+            }
+        }.main ul{
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 10px;
+          
+        }
+        .main ul li{
+           
+            padding: 10px;
+            font-size: 25px;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 10px 10px 10px 10px ;
+        
+
+
+        
+        }
+        .main ul li:hover{
+            background-color: rgb(209, 188, 193);
+        }
+        .tabdesc{
+            border: 1px solid black;
+            padding: 20px;
+            line-height: 30px;
+            margin: 0px 10px ;
+            word-spacing: 5px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="tabdesc"></div>
+</body>
+<script>
+    let alltabs=[
+        {
+            'title':`python`,
+        'descreption':`javaScript is the world's most popular programming language.
+
+JavaScript is the programming language of the Web.
+
+JavaScript is easy to learn.
+
+This tutorial will teach you JavaScript from basic to advanced.`
+        },
+        {
+            'title':`java`,
+        'descreption':` is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere (WORA),[16] meaning that compiled Java code can run on all platforms that support Java without the need to recompile.[17] Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of the underlying computer architecture. The syntax of Java is similar to C and C++, but has fewer low-level facilities than either of them. The Java runtime provides dynamic capabilities (such as reflection and runtime code modification) that are typically not available in traditional compiled languages.
+
+Java gained popularity shortly after its release, and has been a very popular programming language since then.[18] Java was the third most popular programming language in 2022 according to GitHub.[19] Although still widely popular, there has been a gradual decline in use of Java in recent years with other languages using JVM gaining popularity.[20]`
+        },
+        {
+            'title':`php`,
+            'descreption':`PHP can be used to develop dynamic and interactive web pages, applications, and eCommerce platforms. PHP is well suited to various web tasks, from generating dynamic web pages, sending emails, and collecting web forms to sending and receiving cookies`
+        },
+        {
+            'title':'css',
+            'descreption':`CSS is the language we use to style an HTML document.
+
+CSS describes how HTML elements should be displayed.
+
+This tutorial will teach you CSS from basic to advanced.
+
+`
+        }
+       
+
+
+    ]
+    let ulelements=document.querySelector(".main ul")
+    let tabdsecription=document.querySelector(".tabdesc")
+    let createtsbs=()=>{
+        let allli=''
+        alltabs.forEach((item,index)=>{
+            allli+=`<li onclick="show(${index})">${item.title}</li>`
+        })
+        tabdsecription.innerHTML=alltabs[0].descreption
+        ulelements.innerHTML=allli;
+
+    }
+    function show(currentindex){
+        tabdsecription.innerHTML=alltabs[currentindex].descreption
+    }
+    createtsbs()
+</script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: sans-serif;
+        }
+        table{
+            margin: auto;
+            background-color:blue;
+
+        }
+        
+        table tr td{
+            text-align: center;
+        }
+        table tr td button{
+            width: 50px;
+            height: 50px;
+            background-color:white;
+            border-radius: 50%;
+        
+            cursor: pointer;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        table tr td input{
+            width: 250px;
+            height: 30px;
+            text-align: right;
+            margin: 10px;
+
+        }
+    </style>
+</head>
+<body>
+   <table>
+    <tr>
+        <td>
+            <button>C</button>
+        </td>
+        <td colspan="3">
+            <input type="text/">
+        </td>
+    </tr>
+    <tr>
+        <td><button>+</button></td>
+        <td><button>1</button></td>
+        <td><button>2</button></td>
+        <td><button>3</button></td>
+    </tr>
+    <tr>
+        <td><button>-</button></td>
+        <td><button>4</button></td>
+        <td><button>5</button></td>
+        <td><button>6</button></td>
+    </tr>
+    <tr>
+        <td><button>*</button></td>
+        <td><button>7</button></td>
+        <td><button>8</button></td>
+        <td><button>9</button></td>
+    </tr>
+    <tr>
+        <td><button>/</button></td>
+        <td><button>.</button></td>
+        <td><button>0</button></td>
+        <td><button>=</button></td>
+    </tr>
+    
+   </table>
+</body>
+<script>
+    let maintable=document.querySelector("table")
+    let maininput=document.querySelector("input")
+    maintable.addEventListener("click",(event)=>{
+           
+        let opr =["+","-","*","/","."]
+    
+        let targetpoint=event.target;
+        if(targetpoint.tagName=="BUTTON"){
+            let oldvalue=maininput.value;
+        let lastchar=oldvalue[oldvalue.length-1]
+        
+        let removechar=oldvalue.slice(0,oldvalue.length-1)
+    
+           if(targetpoint.innerHTML=="C"){
+            maininput.value='';
+           }
+           else if(targetpoint.innerHTML=="="){
+            maininput.value=eval(maininput.value)
+           }
+           else{
+            if(opr.includes(targetpoint.innerHTML) && opr.includes(lastchar)){
+                
+                maininput.value=removechar+targetpoint.innerHTML
+                
+            }
+            else{
+                maininput.value=oldvalue+targetpoint.innerHTML
+            }
+            
+           }
+            
+           
+
+           
+           
+           
+        }
+    })
+</script>
+</html>

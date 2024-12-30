@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            max-width: 1000px;
+            margin: auto;
+
+            display: flex;
+        }
+        form input{
+            flex-basis: 80%;
+            height: 40px;
+        }
+        form button{
+            flex-basis: 20%;
+        }
+        .list{
+            width: 1050px;
+            margin: auto;
+            padding-right: 30px;
+            
+        }
+        .list ul li:hover{
+            /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
+            /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(198,143,33,1) 13%, rgba(61,255,0,1) 71%); */
+            /* background: linear-gradient(0deg, rgba(38,81,219,1) 0%, rgba(37,173,114,1) 40%, rgba(35,175,114,1) 63%); */
+            background: linear-gradient(90deg, rgb(160, 149, 167) 0%, rgba(245,208,218,1) 17%, rgba(228,174,189,1) 23%, rgba(222,147,168,1) 40%, rgba(227,200,200,1) 69%, rgba(250,178,82,1) 97%, rgba(220,220,220,1) 97%, rgba(255,237,212,1) 100%);
+        }
+        .list ul li{
+            background-color: aqua;
+            font-size: 30px;
+            list-style: none;
+            height: 40px;
+            
+          
+
+            margin-bottom: 10px;
+        box-shadow: 0px 0px 10px 2px #ccc;
+        border-radius: 10px 10px 10px 10px;
+            padding: 10px;
+        
+            position: relative;
+        
+        
+        }
+        .list ul li span{
+            position: absolute;
+            right: 10px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #cleartodo{
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin-top: 10px;
+            margin-left: 20px;
+            border-radius: 10px 10px;
+            border: none;
+            background-color: white;
+            
+        }
+        #cleartodo:hover{
+            /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(245,208,218,1) 17%, rgba(228,174,189,1) 23%, rgba(222,147,168,1) 40%, rgba(227,200,200,1) 69%, rgba(250,178,82,1) 97%, rgba(220,220,220,1) 97%, rgba(255,237,212,1) 100%); */
+            background: linear-gradient(90deg, rgba(208,197,214,1) 4%, rgba(245,208,218,1) 17%, rgba(228,174,189,1) 23%, rgba(222,147,168,1) 40%, rgba(227,200,200,1) 69%, rgba(226,213,195,1) 100%, rgba(227,208,208,1) 100%, rgba(221,142,32,1) 100%);
+            
+        }
+
+    </style>
+    <body>
+        
+        <form id="mainform">
+        
+<input type="text" name="todo">
+<button>save</button>
+        </form>
+        <div class="list">
+            <button id="cleartodo">clear</button>
+            <ul>
+                
+                
+                            </ul>
+        </div>
+    </body>
+    <script>
+let mainform=document.querySelector("#mainform")
+let allusertodo=[]
+let ulelements=document.querySelector(".list ul")
+mainform.addEventListener("submit",(event)=>{
+
+    let uservalue =event.target.todo.value
+    allusertodo.push(uservalue)
+    displaytodo()
+    event.target.reset()
+    event.preventDefault()
+    
+})
+
+displaytodo=()=>{
+
+
+    let allitems=''
+    allusertodo.forEach((items,index)=>{
+         allitems+=`<li>${index+1} ${items} <span onclick="deleterow(${index})">&times;</span></li>`
+    })
+  ulelements.innerHTML=allitems
+}
+
+
+deleterow=(currentindex)=>{
+    console.log(currentindex)
+    allusertodo.splice(currentindex,1)
+    displaytodo()
+
+}
+
+let clearitems=document.querySelector("#cleartodo")
+clearitems.addEventListener("click",()=>{
+    allusertodo=[]
+    displaytodo()
+})
+    </script>
+    </html>
